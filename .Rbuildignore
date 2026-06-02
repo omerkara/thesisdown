@@ -8,3 +8,5 @@ R/.setup.R
 ^LICENSE\.md$
 .github
 ^README\.Rmd$
+^\.positai$
+^\.claude$
