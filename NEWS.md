@@ -1,12 +1,35 @@
 # thesisdown (development version - 0.2.0.9000)
 
-## Breaking changes to the template
- 
-## Cosmetic changes to the template (non-breaking)
+## Final maintenance release
 
-- [@eugenesit](https://github.com/eugenesit) [discovered bug in output of
-references](https://github.com/ismayc/thesisdown/issues/157) and it was
-fixed with [this commit](https://github.com/ismayc/thesisdown/pull/159/commits/29ff90873e3a48cf3c8a5f80f945459c5f4389dc)
+This is the last planned release. The repository is now archived and
+read-only. See the README for notes on taking over maintenance.
+
+## Breaking changes to the template
+
+- `template.tex` now requires **pandoc >= 3.1.7** (shipped with RStudio
+2023.09 and later, and with recent Positron/Quarto). The definitions it
+copies from pandoc's default LaTeX template are the modern ones, so very old
+pandoc versions are no longer supported.
+
+## Bug fixes to the template
+
+- Fixed `LaTeX Error: Lonely \item--perhaps a missing list environment`, which
+broke **any** thesis containing a citation on pandoc 3.1.7 and newer
+([#207](https://github.com/ismayc/thesisdown/issues/207)). Pandoc 3.1.7
+changed citeproc's LaTeX output to emit each reference as
+`\bibitem[\citeproctext]{ref-key}` inside `CSLReferences`, which requires that
+environment to be a LaTeX `list` environment. The copy of the pandoc preamble
+in `template.tex` predated that change.
+- Fixed `Undefined control sequence: \pandocbounded`, which broke any thesis
+containing a figure on pandoc 3.2.1 and newer. Pandoc now wraps images in
+`\pandocbounded` and defines it in its own default LaTeX template; because
+{thesisdown} supplies a custom template, the definition had to be added here.
+- In-text citations can now be clickable links to their entry in the
+References chapter ([#151](https://github.com/ismayc/thesisdown/issues/151)).
+This needs pandoc's `\citeproc` macro, which the old `template.tex` never
+defined, so `link-citations: true` previously failed to compile. It is now
+enabled by default in the skeleton's YAML.
 
 ## Updates to the package
 

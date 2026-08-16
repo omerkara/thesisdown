@@ -59,6 +59,9 @@ abbreviations:
 bibliography: bib/thesis.bib
 # Download your specific csl file and refer to it in the line below.
 csl: csl/apa.csl
+# Makes in-text citations clickable links to their entry in the References
+# chapter. Set to false if you'd rather have plain, unlinked citations.
+link-citations: true
 lot: true
 lof: true
 ---

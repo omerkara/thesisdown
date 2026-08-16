@@ -25,5 +25,5 @@ Suggests:
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-SystemRequirements: pandoc (>= 1.18) - https://pandoc.org
+SystemRequirements: pandoc (>= 3.1.7) - https://pandoc.org
 RoxygenNote: 7.1.1
